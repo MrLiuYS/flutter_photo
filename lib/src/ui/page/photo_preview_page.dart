@@ -128,6 +128,8 @@ class _PhotoPreviewPageState extends State<PhotoPreviewPage> {
       ),
       child: Scaffold(
         appBar: AppBar(
+          brightness: Brightness.light,
+          centerTitle: true,
           backgroundColor: config.options.themeColor,
           leading: BackButton(
             color: options.textColor,

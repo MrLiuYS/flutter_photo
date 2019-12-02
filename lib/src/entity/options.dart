@@ -15,6 +15,9 @@ class Options {
 
   final Color themeColor;
 
+  final Color boxColor;
+  final Color boxTextColor;
+
   final Color dividerColor;
 
   final Color textColor;
@@ -39,6 +42,8 @@ class Options {
     this.padding,
     this.itemRadio,
     this.themeColor,
+    this.boxColor,
+    this.boxTextColor,
     this.dividerColor,
     this.textColor,
     this.disableColor,

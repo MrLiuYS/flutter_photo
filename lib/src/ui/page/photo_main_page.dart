@@ -66,7 +66,7 @@ class _PhotoMainPageState extends State<PhotoMainPage>
     if (currentPath?.isAll == true) {
       return i18nProvider.getAllGalleryText(options);
     }
-    return currentPath?.name ?? "Select Folder";
+    return currentPath?.name ?? i18nProvider.getTitleText(options);
   }
 
   GlobalKey scaffoldKey;
@@ -110,6 +110,8 @@ class _PhotoMainPageState extends State<PhotoMainPage>
         style: textStyle,
         child: Scaffold(
           appBar: AppBar(
+            brightness: Brightness.light,
+            centerTitle: true,
             leading: IconButton(
               icon: Icon(
                 Icons.close,
@@ -290,7 +292,7 @@ class _PhotoMainPageState extends State<PhotoMainPage>
           children: <Widget>[
             ImageItem(
               entity: data,
-              themeColor: themeColor,
+              themeColor: options.boxColor,
               size: options.thumbSize,
               loadingDelegate: options.loadingDelegate,
               badgeDelegate: options.badgeDelegate,
@@ -343,15 +345,15 @@ class _PhotoMainPageState extends State<PhotoMainPage>
         textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: 12.0,
-          color: options.textColor,
+          color: options.boxTextColor,
         ),
       );
-      decoration = BoxDecoration(color: themeColor);
+      decoration = BoxDecoration(color: options.boxColor);
     } else {
       decoration = BoxDecoration(
         borderRadius: BorderRadius.circular(1.0),
         border: Border.all(
-          color: themeColor,
+          color: options.boxColor,
         ),
       );
     }
@@ -376,7 +378,7 @@ class _PhotoMainPageState extends State<PhotoMainPage>
   }
 
   void _onGalleryChange(AssetPathEntity assetPathEntity) async {
-    // _currentPath = assetPathEntity;
+    _currentPath = assetPathEntity;
 
     // _currentPath.assetList.then((v) async {
     //   _sortAssetList(v);

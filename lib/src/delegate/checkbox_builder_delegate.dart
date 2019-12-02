@@ -19,9 +19,9 @@ class DefaultCheckBoxBuilderDelegate extends CheckBoxBuilderDelegate {
   Color checkColor;
 
   DefaultCheckBoxBuilderDelegate({
-    this.activeColor = Colors.white,
-    this.unselectedColor = Colors.white,
-    this.checkColor = Colors.black,
+    this.activeColor = const Color(0xff3776E9),
+    this.unselectedColor = const Color(0xff3776E9),
+    this.checkColor = Colors.white,
   });
 
   @override

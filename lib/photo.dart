@@ -66,10 +66,12 @@ class PhotoPicker {
     int maxSelected = 9,
     double padding = 0.5,
     double itemRadio = 1.0,
-    Color themeColor,
-    Color dividerColor,
-    Color textColor,
-    Color disableColor,
+    Color themeColor = const Color(0xffF7F8FA),
+    Color dividerColor = const Color(0x99000000),
+    Color textColor = const Color(0x99000000),
+    Color disableColor = const Color(0x99000000),
+    Color boxColor = const Color(0xff3776E9),
+    Color boxTextColor = const Color(0xffffffff),
     int thumbSize = 64,
     I18nProvider provider = I18nProvider.chinese,
     SortDelegate sortDelegate,
@@ -102,6 +104,8 @@ class PhotoPicker {
       disableColor: disableColor,
       textColor: textColor,
       themeColor: themeColor,
+      boxColor: boxColor,
+      boxTextColor: boxTextColor,
       thumbSize: thumbSize,
       sortDelegate: sortDelegate,
       checkBoxBuilderDelegate: checkBoxBuilderDelegate,
@@ -129,8 +133,8 @@ class PhotoPicker {
       var result = await showDialog(
         context: context,
         builder: (ctx) => NotPermissionDialog(
-          provider.getNotPermissionText(options),
-        ),
+              provider.getNotPermissionText(options),
+            ),
       );
       if (result == true) {
         PhotoManager.openSetting();
@@ -150,10 +154,10 @@ class PhotoPicker {
     return Navigator.of(context, rootNavigator: true).push(
       MaterialPageRoute(
         builder: (ctx) => PhotoApp(
-          options: options,
-          provider: provider,
-          photoList: photoList,
-        ),
+              options: options,
+              provider: provider,
+              photoList: photoList,
+            ),
       ),
     );
   }
